@@ -10,7 +10,12 @@ public class YuiUtilsTest extends TestCase {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("foo", true);
         map.put("bar", false);        
-        assertEquals("{foo : true, bar : false}", YuiUtils.getJson(map));
+	String result = YuiUtils.getJson(map);
+	assertTrue(result.indexOf("foo : true") != -1);
+	assertTrue(result.indexOf("bar : false") != -1);
+	assertTrue(result.indexOf("{") == 0);
+	assertTrue(result.indexOf("}") == result.length() -1);
+	assertTrue(result.length() == "{foo : true, bar : false}".length());
     }
     
 }
