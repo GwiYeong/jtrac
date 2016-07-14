@@ -49,7 +49,7 @@ public class IndividualHeadPanel extends BasePanel {
 				String urlbase = configMap.get("jtrac.url.base");
 				String url = configMap.get("jtrac.header.picture");
 				if ((url == null) ||("".equals(url)))
-					return urlbase + "/resources/jtrac-logo.gif";
+					return (urlbase != null ? urlbase : "/jtrac") + "/resources/jtrac-logo.gif";
 				else
   				    return url;
 			}
